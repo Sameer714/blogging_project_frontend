@@ -1,0 +1,107 @@
+.bg-img {
+    background-image: url("https://img.freepik.com/free-photo/autumn-leaves-composition_23-2151554949.jpg?t=st=1718796975~exp=1718800575~hmac=6150f81cf1d4d9a7b6e60e763012c7c5ceb0a237788405b9acfb961180d2f74c&w=826");
+
+    min-height: 100vh;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    position: relative;
+    width: 242px;
+    height: 275px;
+    max-width: 800px;
+    padding: 16px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    opacity: 95%;
+    border-radius: 86px;
+}
+
+.bttn {
+    display: flex;
+    justify-content: center;
+}
+
+
+.invalid-credentials {
+    color: red;
+    margin-top: 5px;
+    font-size: small;
+    display: flex;
+    justify-content: center;
+}
+
+.button {
+    display: flex;
+    justify-content: center;
+    background-color: rgba(158, 6, 6, 0.8);
+    color: white;
+    padding: 12px;
+    margin: 10px;
+    border: groove;
+    cursor: pointer;
+    width: 65%;
+    border-radius: 36px;
+    margin-bottom: -2px;
+}
+.button:hover,
+.button:focus {
+  background-color: rgb(158, 27, 27); 
+}
+
+.cred {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    padding-left: 17px;
+}
+
+.signup {
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+    font-size: small;
+}
+
+.input-container {
+    position: relative;
+    margin-bottom: 25px;
+    color: #3e6ab9;
+    padding: 17px 0 5px 0;
+}
+
+.input-container label {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    font-size: 15px;
+    color: #6057dd;
+    transition: all 0.5s ease-in-out;
+    margin-bottom: 39px;
+}
+
+.input-container input {
+    border: 0;
+    cursor:text;
+    border-bottom: 1px solid #555;
+    background: transparent;
+    width: 100%;
+    padding: 8px 0 5px 0;
+    font-size: 16px;
+    color: #000000;
+}
+
+.input-container input:focus {
+    border: none;
+    outline: none;
+    border-bottom: 1px solid #e74c3c;
+}

@@ -1,0 +1,42 @@
+<div class="loading-overlay" *ngIf="loading">
+  <div class="loading-spinner"></div>
+</div>
+
+<header>
+  <div class="header">
+    <div class="logo">
+      <h1 class="heading"><i>Techvum</i></h1>
+    </div>
+    <nav class="nav-menu">
+      <ul class="nav-list">
+        <li class="nav-item"><a href="#">Home</a></li>
+        <li class="nav-item"><a href="#">Blog</a></li>
+        <li class="nav-item"><a href="#">About Us</a></li>
+        <li class="nav-item"><a href="#">Contact Us</a></li>
+      </ul>
+    </nav>
+    <div class="user-actions">
+      <button class="btn btn-write-blog" type="button" (click)="create()">Write Blog</button>
+      <div class="user-auth">
+        <a href="#" class="btn btn-sign-in">Sign Up</a>
+        <a href="#" class="btn btn-log-in">Log In</a>
+      </div>
+      <div class="profile">
+        <a href="#">Profile</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="blog-section">
+  <div class="blogList">
+    <div *ngIf="responseData.length === 0 && !loading" class="no-blogs-message">No blogs available.</div>
+    <div *ngFor="let blog of responseData" class="blogItem">
+      <h2>{{ blog.blogTitle }}</h2>
+      <p><strong>Author:</strong> {{ blog.authorName }}</p>
+      <p>{{ blog.aboutBlog }}</p>
+      <div class="content">{{ blog.content }}</div>
+      <button class="btn btn-view-details" type="button" (click)="navigateToData(blog.id)">View Details</button>
+    </div>
+  </div>
+</section>

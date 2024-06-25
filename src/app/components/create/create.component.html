@@ -1,0 +1,24 @@
+<div>
+	<div class="bg-img"> 
+        <form [formGroup]="createForm" class="container">
+            <div class="input-container">
+              <label>Blog Title:</label>
+              <input type="text" formControlName="blogTitle" />
+            </div>
+            <div class="input-container">
+              <label>Author Name :</label>
+              <input type="text" formControlName="authorName" />
+            </div>
+            <div class="input-container">
+                <label>Launch Date</label>
+                <input type="date" formControlName="launchDate" />
+              </div>
+              <div class="abk">
+                <label>About Blog</label>
+                <input type="text" formControlName="aboutBlog" placeholder="Under 220 characters!"/>
+              </div>
+            <div class = "bttn"><button type="submit" class = "button" [disabled]= "createForm.invalid" (click)="create()">Publish Blog!</button>
+            </div>
+          </form>				  
+	</div>
+</div>

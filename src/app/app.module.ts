@@ -23,6 +23,9 @@ import { ChangePassComponent } from './components/change-pass/change-pass.compon
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { ForgotPassComponent } from './components/forgot-pass/forgot-pass.component';
+import { PopupcredComponent } from './components/popupcred/popupcred.component';
+import { ContactComponent } from './components/contact/contact.component';
+import { AboutComponent } from './components/about/about.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,6 +43,9 @@ import { ForgotPassComponent } from './components/forgot-pass/forgot-pass.compon
     DelUserComponent,
     ChangePassComponent,
     ForgotPassComponent,
+    PopupcredComponent,
+    ContactComponent,
+    AboutComponent,
   ],
   imports: [
     BrowserModule,

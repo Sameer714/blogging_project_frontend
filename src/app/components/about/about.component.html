@@ -1,0 +1,38 @@
+<div class="loading-overlay" *ngIf="loading">
+    <div class="loading-spinner">
+    </div>
+</div>
+
+<header>
+
+    <div class="header">
+        <div class="logo">
+            <h1 class="heading"><i>Techvum</i></h1>
+        </div>
+
+        <nav class="nav-menu">
+            <ul class="nav-list">
+                <li class="nav-item"><a href="/home">Home</a></li>
+                <li class="nav-item"><a href="#">Blog</a></li>
+                <li class="nav-item"><a href="/about">About Us</a></li>
+                <li class="nav-item"><a href="/contact">Contact Us</a></li>
+            </ul>
+        </nav>
+
+        <div class="user-actions">
+            <button class="btn btn-write-blog" type="button" (click)="create()">Write Blog</button>
+            <div class="user-auth">
+                <button class="btn btn-sign-up" type="button" (click)="signuppop()">Sign Up</button>
+                <button class="btn btn-log-in" type="button" (click)="loginpopup()">Log In</button>
+            </div>
+            <div class="profile">
+                <a href="#">Profile</a>
+            </div>
+        </div>
+    </div>
+    
+</header>
+
+<div class="ref">
+    <h1>Populate from backend</h1>
+</div>

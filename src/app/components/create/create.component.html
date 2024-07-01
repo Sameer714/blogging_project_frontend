@@ -1,24 +1,30 @@
-<div>
-	<div class="bg-img"> 
-        <form [formGroup]="createForm" class="container">
-            <div class="input-container">
-              <label>Blog Title:</label>
-              <input type="text" formControlName="blogTitle" />
-            </div>
-            <div class="input-container">
-              <label>Author Name :</label>
-              <input type="text" formControlName="authorName" />
-            </div>
-            <div class="input-container">
-                <label>Launch Date</label>
-                <input type="date" formControlName="launchDate" />
-              </div>
-              <div class="abk">
-                <label>About Blog</label>
-                <input type="text" formControlName="aboutBlog" placeholder="Under 220 characters!"/>
-              </div>
-            <div class = "bttn"><button type="submit" class = "button" [disabled]= "createForm.invalid" (click)="create()">Publish Blog!</button>
-            </div>
-          </form>				  
-	</div>
-</div>
+<div class="bg-img">
+    <div class="container">
+      <form [formGroup]="createForm" (ngSubmit)="create()">
+        <h2>Create a New Blog Post!</h2>
+        <div class="input-container">
+          <label>Blog Title:</label>
+          <input type="text" formControlName="blogTitle" />
+        </div>
+        <div class="input-container">
+          <label>Author Name:</label>
+          <input type="text" formControlName="authorName" />
+        </div>
+        <div class="input-container">
+          <label>Launch Date:</label>
+          <input type="date" formControlName="launchDate" />
+        </div>
+        <div class="input-container">
+          <label>About:</label>
+          <textarea formControlName="aboutBlog" rows="3" placeholder="Enter a brief description (under 220 characters)"></textarea>
+        </div>
+        <div class="input-container">
+          <label>Content:</label>
+          <textarea formControlName="content" rows="25" class="contentbody" placeholder="Write your blog content"></textarea>
+        </div>
+        <div class="bttn">
+          <button type="submit" class="button" [disabled]="createForm.invalid">Publish Blog!</button>
+        </div>
+      </form>
+    </div>
+  </div>

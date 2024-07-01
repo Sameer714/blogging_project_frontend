@@ -23,6 +23,7 @@ export class CreateComponent implements OnInit {
       authorName: ['', [Validators.required, Validators.maxLength(220)]],
       launchDate: [''],
       aboutBlog: [''],
+      content:['']
     });
   
     this.token = localStorage.getItem('jwtoken');

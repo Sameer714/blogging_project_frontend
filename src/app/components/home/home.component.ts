@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router'; // Import Router
 import { PopupComponent } from '../popup/popup.component';
 import { MatDialog } from '@angular/material/dialog';
+import { PopupcredComponent } from '../popupcred/popupcred.component';
 
 @Component({
   selector: 'app-home',
@@ -60,6 +61,24 @@ export class HomeComponent implements OnInit {
   create() {
     this.router.navigateByUrl('/create');
   }
+  signuppop() {
+    const popup = this.dialog.open(PopupcredComponent, {
+      data: {
+        message: "Create Account",
+        status: 'signin'
+      }
+    });
+  }
+  
+  loginpopup() {
+    const popup = this.dialog.open(PopupcredComponent, {
+      data: {
+        message: "Log In",
+        status: 'login'
+      }
+    });
+  }
+  
 
   changepass() {
     this.router.navigateByUrl('/change-pass')

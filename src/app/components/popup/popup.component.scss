@@ -4,13 +4,14 @@
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
   text-align: center;
   background-color: #ffffff;
-  max-width: 400px; /* Adjust the max-width as per your design */
+  max-width: 400px;
   margin: auto;
 }
 
 .wholepopup {
   border: solid;
 }
+
 .h3 {
   font-size: 1.3rem;
   margin-bottom: 15px;
@@ -25,6 +26,7 @@
   color: #333333;
   margin: -15px;
 }
+
 .maintxt{
   margin-bottom: -4px;
 }
@@ -43,12 +45,14 @@
 .bttn .btn-close:hover {
   background-color: #911111;
 }
+
 .bttn2{
   display: flex;
   justify-content: center;
   margin-top: 5px;
   margin-bottom: 6px;
 }
+
 .bttn{
   display: flex;
   justify-content: end;

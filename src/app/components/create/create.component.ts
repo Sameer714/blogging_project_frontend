@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
@@ -13,9 +14,10 @@ export class CreateComponent implements OnInit {
   responseData: any;
   token: any;
   createForm!: FormGroup;
+  loading: boolean = false;
 
   constructor(
-    private route: ActivatedRoute, private http: HttpClient,private router: Router, private formBuilder: FormBuilder ) {}
+    private route: ActivatedRoute, private http: HttpClient,private router: Router, private formBuilder: FormBuilder, private dialog : MatDialog ) {}
 
   ngOnInit(): void {
     this.createForm = this.formBuilder.group({
@@ -27,6 +29,27 @@ export class CreateComponent implements OnInit {
     });
   
     this.token = localStorage.getItem('jwtoken');
+  }
+  createred() {
+    this.router.navigateByUrl('/create');
+  }
+
+  signuppop() {
+    const popup = this.dialog.open(CreateComponent, {
+      data: {
+        message: "Create Account",
+        status: 'signin'
+      }
+    });
+  }
+
+  loginpopup() {
+    const popup = this.dialog.open(CreateComponent, {
+      data: {
+        message: "Log In",
+        status: 'login'
+      }
+    });
   }
 
   create() {

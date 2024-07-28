@@ -27,16 +27,3 @@
         </div>
     </div>
 </header>
-
-<section class="blog-section">
-    <div class="blogList">
-        <div *ngIf="responseData.length === 0 && !loading" class="no-blogs-message">No blogs available.</div>
-        <div *ngFor="let blog of responseData" class="blogItem">
-            <h2>{{ blog.blogTitle }}</h2>
-            <p><strong>Author:</strong> {{ blog.authorName }}</p>
-            <p>{{ blog.aboutBlog }}</p>
-            <div class="content">{{ blog.content }}</div>
-            <button class="btn btn-view-details" type="button" (click)="navigateToData(blog.id)">View Details</button>
-        </div>
-    </div>
-</section>

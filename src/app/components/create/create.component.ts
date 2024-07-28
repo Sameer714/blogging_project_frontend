@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
+import { PopupcredComponent } from '../popupcred/popupcred.component';
 
 @Component({
   selector: 'app-create',
@@ -35,16 +36,16 @@ export class CreateComponent implements OnInit {
   }
 
   signuppop() {
-    const popup = this.dialog.open(CreateComponent, {
+    const popup = this.dialog.open(PopupcredComponent, {
       data: {
         message: "Create Account",
         status: 'signin'
       }
     });
   }
-
+  
   loginpopup() {
-    const popup = this.dialog.open(CreateComponent, {
+    const popup = this.dialog.open(PopupcredComponent, {
       data: {
         message: "Log In",
         status: 'login'

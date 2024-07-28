@@ -1,57 +1,56 @@
 <div class="loading-overlay" *ngIf="loading">
     <div class="loading-spinner"></div>
-  </div>
-  
-  <header>
+</div>
+
+<header>
     <div class="header">
-      <div class="logo">
-        <h1 class="heading"><i>Techvum</i></h1>
-      </div>
-      <nav class="nav-menu">
-        <ul class="nav-list">
-          <li class="nav-item"><a href="/home">Home</a></li>
-          <li class="nav-item"><a href="#">Blog</a></li>
-          <li class="nav-item"><a href="/about">About Us</a></li>
-          <li class="nav-item"><a href="/contact">Contact Us</a></li>
-        </ul>
-      </nav>
-      <div class="user-actions">
-        <button class="btn btn-write-blog" type="button" (click)="create()">Write Blog</button>
-        <div class="user-auth">
-          <button class="btn btn-sign-up" type="button" (click)="signuppop()">Sign Up</button>
-          <button class="btn btn-log-in" type="button" (click)="loginpopup()">Log In</button>
+        <div class="logo">
+            <h1 class="heading"><i>Techvum</i></h1>
         </div>
-        <div class="profile">
-          <a href="#">Profile</a>
+        <nav class="nav-menu">
+            <ul class="nav-list">
+                <li class="nav-item"><a href="/home">Home</a></li>
+                <li class="nav-item"><a href="/blog">Blog</a></li>
+                <li class="nav-item"><a href="/about">About Us</a></li>
+                <li class="nav-item"><a href="/contact">Contact Us</a></li>
+            </ul>
+        </nav>
+        <div class="user-actions">
+            <button class="btn btn-write-blog" type="button" (click)="create()">Write Blog</button>
+            <div class="user-auth">
+                <button class="btn btn-sign-up" type="button" (click)="signuppop()">Sign Up</button>
+                <button class="btn btn-log-in" type="button" (click)="loginpopup()">Log In</button>
+            </div>
+            <div class="profile">
+                <a href="#">Profile</a>
+            </div>
         </div>
-      </div>
     </div>
-  </header>
-  
-  <div class="bg-img">
+</header>
+
+<div class="bg-img">
     <div class="container">
-      <form [formGroup]="contactForm" (ngSubmit)="create()">
-        <h2><i><u>Contact Us!</u></i></h2>
-        <div class="input-container">
-          <label>From:</label>
-          <input type="email" formControlName="from" placeholder="Enter Your Email Id" class="em" />
-        </div>
-        <div class="input-container">
-          <label>Your Name:</label>
-          <input type="text" formControlName="yourName" placeholder="Enter Your Name" />
-        </div>
-        <div class="input-container">
-          <label>Subject:</label>
-          <textarea formControlName="subject" rows="1" placeholder="Enter a brief subject (under 220 characters)"></textarea>
-        </div>
-        <div class="input-container">
-          <label>Content:</label>
-          <textarea formControlName="content" rows="5" class="contentbody" placeholder="Talk To Us!"></textarea>
-        </div>
-        <div class="bttn">
-          <button type="submit" class="button" [disabled]="contactForm.invalid">Send!</button>
-        </div>
-      </form>
+        <form [formGroup]="contactForm" (ngSubmit)="create()">
+            <h2><i><u>Contact Us!</u></i></h2>
+            <div class="input-container">
+                <label>From:</label>
+                <input type="email" formControlName="from" placeholder="Enter Your Email Id" class="em" />
+            </div>
+            <div class="input-container">
+                <label>Your Name:</label>
+                <input type="text" formControlName="yourName" placeholder="Enter Your Name" />
+            </div>
+            <div class="input-container">
+                <label>Subject:</label>
+                <textarea formControlName="subject" rows="1" placeholder="Enter a brief subject (under 220 characters)"></textarea>
+            </div>
+            <div class="input-container">
+                <label>Content:</label>
+                <textarea formControlName="content" rows="5" class="contentbody" placeholder="Talk To Us!"></textarea>
+            </div>
+            <div class="bttn">
+                <button type="submit" class="button" [disabled]="contactForm.invalid">Send!</button>
+            </div>
+        </form>
     </div>
-  </div>
-  
+</div>

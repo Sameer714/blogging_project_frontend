@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { PopupcredComponent } from '../popupcred/popupcred.component';
 
 @Component({
   selector: 'app-contact',
@@ -33,16 +34,16 @@ export class ContactComponent {
   }
 
   signuppop() {
-    const popup = this.dialog.open(ContactComponent, {
+    const popup = this.dialog.open(PopupcredComponent, {
       data: {
         message: "Create Account",
         status: 'signin'
       }
     });
   }
-
+  
   loginpopup() {
-    const popup = this.dialog.open(ContactComponent, {
+    const popup = this.dialog.open(PopupcredComponent, {
       data: {
         message: "Log In",
         status: 'login'

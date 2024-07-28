@@ -16,6 +16,7 @@ import { ForgotPassComponent } from './components/forgot-pass/forgot-pass.compon
 import { PopupcredComponent } from './components/popupcred/popupcred.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { AboutComponent } from './components/about/about.component';
+import { BlogComponent } from './components/blog/blog.component';
 
 
 const routes: Routes = [
@@ -81,6 +82,9 @@ const routes: Routes = [
 
 {
   path:'about' , component:AboutComponent
+},
+{
+  path:'blog' , component:BlogComponent
 },
 
 {

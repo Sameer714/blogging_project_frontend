@@ -1,19 +1,17 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { PopupcredComponent } from '../popupcred/popupcred.component';
+import { PopupComponent } from '../popup/popup.component';
 
 @Component({
-  selector: 'app-about',
-  templateUrl: './about.component.html',
-  styleUrls: ['./about.component.scss']
+  selector: 'app-blog',
+  templateUrl: './blog.component.html',
+  styleUrls: ['./blog.component.scss']
 })
-export class AboutComponent {
+export class BlogComponent {
 
-  contactForm!:FormGroup;
-  invalidCredentials = false;
   responseData: any[] = []; 
   launchDate: string[] = []; 
   minDate: Date | undefined;
@@ -22,18 +20,22 @@ export class AboutComponent {
   loggedinUser :any;
   loading: boolean = false;
   blogTitle: any = [];
-  yourName: any =[];
-  subject: any = [];
+  authorName: any =[];
+  aboutBlog: any = [];
   content: any = [];  
-
-  constructor(private http: HttpClient, private router: Router, private dialog : MatDialog,private formBuilder: FormBuilder) {
+  constructor(private http: HttpClient, private router: Router, private dialog : MatDialog) {
     this.minDate = new Date();
+  }
+
+  ngOnInit() {
+    this.token = localStorage.getItem('jwtoken');
+    this.role = localStorage.getItem('Role');
+    this.loggedinUser = localStorage.getItem('usernm');
   }
 
   create() {
     this.router.navigateByUrl('/create');
   }
-
   signuppop() {
     const popup = this.dialog.open(PopupcredComponent, {
       data: {
@@ -50,6 +52,25 @@ export class AboutComponent {
         status: 'login'
       }
     });
+  }
+
+  changepass() {
+    this.router.navigateByUrl('/change-pass')
+    }
+
+  Admin() {
+    this.router.navigateByUrl('/users')
+    }
+
+  logout() {
+    const popup = this.dialog.open(PopupComponent, {
+      data: { 
+        message: "Logged Out Successfully!",
+        status: 'done'
+      }
+    });
+    localStorage.clear();
+    this.router.navigateByUrl('login');
   }
 
 }

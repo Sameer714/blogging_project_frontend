@@ -61,6 +61,7 @@ export class PopupcredComponent {
                 status: 'welcome'
               }
             });
+            
           }
           else if (response.Success === "false"){
             const popup = this.dialog.open(PopupComponent, {

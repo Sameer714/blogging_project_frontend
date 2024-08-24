@@ -77,6 +77,7 @@ export class HomeComponent implements OnInit {
         status: 'login'
       }
     });
+    
   }
   
 

@@ -22,7 +22,7 @@
                     <label>Password:</label>
                     <input type="password" formControlName="pass" />
                     <mat-error *ngIf="passwordControl?.invalid && !passwordControl?.hasError('required')">
-                        Short Password: Min length is 5 characters.
+                        Min password length is 5 characters.
                     </mat-error>
                 </div>
 

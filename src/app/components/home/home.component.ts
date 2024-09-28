@@ -23,6 +23,8 @@ export class HomeComponent implements OnInit {
   authorName: any =[];
   aboutBlog: any = [];
   content: any = [];  
+  trimmedString: any=[]; 
+
   constructor(private http: HttpClient, private router: Router, private dialog : MatDialog) {
     this.minDate = new Date();
   }
@@ -56,10 +58,15 @@ export class HomeComponent implements OnInit {
         console.error('Error:', error);
         this.loading = false;
       });
+
+
   }
 
   create() {
     this.router.navigateByUrl('/create');
+  }
+  trim(content: string): string {
+    return content.length > 50 ? content.slice(0, 50): content;
   }
   signuppop() {
     const popup = this.dialog.open(PopupcredComponent, {

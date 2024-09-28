@@ -35,7 +35,8 @@
             <h2>{{ blog.blogTitle }}</h2>
             <p><strong>Author:</strong> {{ blog.authorName }}</p>
             <p>{{ blog.aboutBlog }}</p>
-            <div class="content">{{ blog.content }}</div>
+            <div *ngIf="blog.content.length <50" class="content">{{ blog.content }}</div>
+            <div *ngIf="blog.content.length >50" class="content"> {{trim(blog.content)}} ...</div>
             <button class="btn btn-view-details" type="button" (click)="navigateToData(blog.id)">View Details</button>
         </div>
     </div>

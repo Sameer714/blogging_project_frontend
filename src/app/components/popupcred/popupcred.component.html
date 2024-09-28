@@ -12,28 +12,36 @@
             <form [formGroup]="signupForm" class="container">
                 <div class="input-container">
                     <label>Email:</label>
-                    <input type="email" formControlName="email" />
-                    <mat-error *ngIf="signupForm.controls['email'].invalid && !signupForm.controls['email'].hasError('required')">
-                        Invalid Email
-                    </mat-error>
+                    <div class="error">
+                        <input type="email" formControlName="email" />
+                        <mat-error *ngIf="signupForm.controls['email'].invalid && !signupForm.controls['email'].hasError('required')">
+                            Invalid Email
+                        </mat-error>
+                    </div>
                 </div>
 
                 <div class="input-container">
                     <label>Password:</label>
-                    <input type="password" formControlName="pass" />
-                    <mat-error *ngIf="passwordControl?.invalid && !passwordControl?.hasError('required')">
-                        Min password length is 5 characters.
-                    </mat-error>
+                    <div class="errorp">
+                        <input type="password" formControlName="pass" />
+                        <mat-error *ngIf="passwordControl?.invalid && !passwordControl?.hasError('required')">
+                            Min password length is 5 characters.
+                        </mat-error>
+                    </div>
                 </div>
 
                 <div class="input-container" *ngIf="status === 'signin'">
                     <label>Name:</label>
-                    <input type="text" formControlName="name" />
+                    <div class="error">
+                        <input type="text" formControlName="name" />
+                    </div>
                 </div>
 
                 <div class="input-container" *ngIf="status === 'signin'">
                     <label>Username:</label>
-                    <input type="text" formControlName="userName" />
+                    <div class="errorp">
+                        <input type="text" formControlName="userName" />
+                    </div>
                 </div>
 
 

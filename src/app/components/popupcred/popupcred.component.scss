@@ -15,10 +15,9 @@
 .popup {
     background-color: #ffffff;
     border-radius: 80px;
-    padding: 25px;
+    padding: 29px;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
     max-width: 267px;
-    width: 22%;
     text-align: center;
     position: relative;
 }
@@ -41,7 +40,7 @@
 .maintxt {
     margin-bottom: -4px;
     width: 160px;
-    font-size: inherit;
+    font-size: 24px;
     margin-top: 19px;
 }
 
@@ -105,21 +104,36 @@
 .input-container {
     margin-bottom: 15px;
     text-align: left;
-    margin-right: 7px;
+    display: flex;
+    height: 38px;
 }
 
 .input-container label {
     display: block;
     font-weight: bold;
     margin-bottom: 5px;
+    margin-right: 4px
 }
 
 .input-container input {
-    width: 100%;
+    width: 113%;
+    max-width: max-content;
     padding: 9px;
     border: 1px solid #ccc;
     border-radius: 9px;
     box-sizing: border-box;
+}
+
+.error {
+    display: flex;
+    flex-direction: column;
+    margin-left: 25px;
+}
+
+.errorp {
+    display: flex;
+    flex-direction: column;
+    margin-left: 1px;
 }
 
 .input-container mat-error {
@@ -137,6 +151,7 @@
     transition: background-color 0.3s ease;
     width: 71%;
     box-sizing: border-box;
+    margin-top: 10px;
 }
 
 .button:disabled {

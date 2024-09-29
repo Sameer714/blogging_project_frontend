@@ -3,13 +3,10 @@
         <div class="bttn">
             <button type="button" class="btn-close" (click)="close()">x</button>
         </div>
-
         <div class="congrats" *ngIf="status === 'done'"><i>Sad :(</i></div>
-
         <h3 class="maintxt"><i><u>{{ message }}</u></i></h3>
-
         <div class="bg-img">
-            <form [formGroup]="signupForm" class="container">
+            <form [formGroup]="signupForm" class="container" (ngSubmit)="status === 'signup' ? signup() : login()">
                 <div class="input-container">
                     <label>Email:</label>
                     <div class="error">
@@ -24,33 +21,32 @@
                     <label>Password:</label>
                     <div class="errorp">
                         <input type="password" formControlName="pass" />
-                        <mat-error *ngIf="passwordControl?.invalid && !passwordControl?.hasError('required')">
+                        <mat-error *ngIf="signupForm.controls['pass'].invalid && !signupForm.controls['pass'].hasError('required')">
                             Min password length is 5 characters.
                         </mat-error>
                     </div>
                 </div>
 
-                <div class="input-container" *ngIf="status === 'signin'">
+                <div class="input-container" *ngIf="status === 'signup'">
                     <label>Name:</label>
                     <div class="error">
                         <input type="text" formControlName="name" />
                     </div>
                 </div>
 
-                <div class="input-container" *ngIf="status === 'signin'">
+                <div class="input-container" *ngIf="status === 'signup'">
                     <label>Username:</label>
                     <div class="errorp">
                         <input type="text" formControlName="userName" />
                     </div>
                 </div>
 
-
                 <div class="bttn2">
-                    <button type="submit" class="button" [disabled]="signupForm.invalid" (click)="login()">
-            {{ status === 'signin' ? 'Create Account' : 'Log In' }}
-                  </button>
+                    <button type="submit" class="button" [disabled]="signupForm.invalid">
+                        {{ status === 'signup' ? 'Create Account' : 'Log In' }}
+                    </button>
                 </div>
-                <div class="signin" *ngIf="status === 'login'">
+                <div class="signup" *ngIf="status === 'signup'">
                     <a routerLink="/signup">Sign up!</a>
                 </div>
             </form>

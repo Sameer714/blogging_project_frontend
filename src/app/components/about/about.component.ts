@@ -38,7 +38,7 @@ export class AboutComponent {
     const popup = this.dialog.open(PopupcredComponent, {
       data: {
         message: "Create Account",
-        status: 'signin'
+        status: 'signup'
       }
     });
   }

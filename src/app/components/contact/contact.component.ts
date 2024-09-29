@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
-import { Component } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { PopupcredComponent } from '../popupcred/popupcred.component';
@@ -10,7 +10,7 @@ import { PopupcredComponent } from '../popupcred/popupcred.component';
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.scss']
 })
-export class ContactComponent {
+export class ContactComponent implements OnInit {
   contactForm!:FormGroup;
   invalidCredentials = false;
   responseData: any[] = []; 
@@ -28,6 +28,14 @@ export class ContactComponent {
   constructor(private http: HttpClient, private router: Router, private dialog : MatDialog,private formBuilder: FormBuilder) {
     this.minDate = new Date();
   }
+  ngOnInit(): void {
+      this.contactForm = this.formBuilder.group({
+        from: ['', [Validators.required, Validators.email]], 
+        yourName: ['', Validators.required],
+        subject: ['', [Validators.required, Validators.maxLength(220)]], 
+        content: ['', Validators.required], 
+      });
+  }
 
   create() {
     this.router.navigateByUrl('/create');
@@ -37,7 +45,7 @@ export class ContactComponent {
     const popup = this.dialog.open(PopupcredComponent, {
       data: {
         message: "Create Account",
-        status: 'signin'
+        status: 'signup'
       }
     });
   }

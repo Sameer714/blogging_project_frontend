@@ -31,8 +31,8 @@ export class ContactComponent implements OnInit {
   ngOnInit(): void {
       this.contactForm = this.formBuilder.group({
         from: ['', [Validators.required, Validators.email]], 
-        yourName: ['', Validators.required],
-        subject: ['', [Validators.required, Validators.maxLength(220)]], 
+        name: ['', Validators.required],
+        sub: ['', [Validators.required, Validators.maxLength(220)]], 
         content: ['', Validators.required], 
       });
   }
@@ -61,35 +61,12 @@ export class ContactComponent implements OnInit {
 
   contact(){
     if (this.contactForm.valid) {
-
       // API FOR SENDING THE CONTACT FORM
-
-      // .................................................................................
-
-      // console.log('form', this.contactForm.value);
-      // this.http.post<any>('http://localhost:9092/auth/login', this.contactForm.value)
-      //   .subscribe(response => {
-      //     console.log('Response from server:', response);
-
-      //     if (response.jwtoken) {
-      //       localStorage.setItem('jwtoken', response.jwtoken);
-      //       localStorage.setItem('Role', response.role);
-      //       localStorage.setItem('usernm', response.usernm);
-      //       localStorage.setItem('id', response.id);
-
-      //       this.router.navigateByUrl('/home');
-      //     } else if (response.usernm === "USER INACTIVE!") {
-      //       const popup = this.dialog.open(ContactComponent, {
-      //         data: { message: "The Account is inactive!" }
-      //       });
-      //       this.router.navigateByUrl('/login');
-      //     } else {
-      //       if (this.contactForm.get('passw')?.value != null) {
-      //         this.contactForm.get('passw')?.setValue('');
-      //       }
-      //       this.invalidCredentials = true;
-      //     }
-      //   });
+      console.log('form', this.contactForm.value);
+      this.http.post<any>('http://localhost:9092/v2/api/send', this.contactForm.value)
+        .subscribe(response => {
+          console.log('Response from server:', response);
+        })
     }
   }
 }

@@ -30,7 +30,7 @@
 
 <div class="bg-img">
     <div class="container">
-        <form [formGroup]="contactForm" (ngSubmit)="create()">
+        <form [formGroup]="contactForm" (ngSubmit)="contact()">
             <h2><i><u>Contact Us!</u></i></h2>
             <div class="input-container">
                 <label>From:</label>
@@ -38,11 +38,11 @@
             </div>
             <div class="input-container">
                 <label>Your Name:</label>
-                <input type="text" formControlName="yourName" placeholder="Enter Your Name" />
+                <input type="text" formControlName="name" placeholder="Enter Your Name" />
             </div>
             <div class="input-container">
                 <label>Subject:</label>
-                <textarea type="text" formControlName="subject" class="contentbody1" placeholder="Enter a brief subject (under 220 characters)"></textarea>
+                <textarea type="text" formControlName="sub" class="contentbody1" placeholder="Enter a brief subject (under 220 characters)"></textarea>
             </div>
             <div class="input-container">
                 <label>Content:</label>

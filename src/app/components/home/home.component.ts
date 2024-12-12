@@ -24,12 +24,14 @@ export class HomeComponent implements OnInit {
   aboutBlog: any = [];
   content: any = [];  
   trimmedString: any=[]; 
+  username: any;
 
   constructor(private http: HttpClient, private router: Router, private dialog : MatDialog) {
     this.minDate = new Date();
   }
 
   ngOnInit() {
+    this.username = localStorage.getItem('usernm');
     this.token = localStorage.getItem('jwtoken');
     this.role = localStorage.getItem('Role');
     this.loggedinUser = localStorage.getItem('usernm');

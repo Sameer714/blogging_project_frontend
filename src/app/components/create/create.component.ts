@@ -21,13 +21,14 @@ export class CreateComponent implements OnInit {
     private route: ActivatedRoute, private http: HttpClient,private router: Router, private formBuilder: FormBuilder, private dialog : MatDialog ) {}
 
   ngOnInit(): void {
+    const username = localStorage.getItem('usernm');
     this.createForm = this.formBuilder.group({
       blogTitle: ['', [Validators.required]],
-      authorName: ['', [Validators.required, Validators.maxLength(220)]],
+      authorName: [{ value: username, disabled: true }],
       launchDate: [''],
       aboutBlog: [''],
       content:['']
-    });
+        });
   
     this.token = localStorage.getItem('jwtoken');
   }

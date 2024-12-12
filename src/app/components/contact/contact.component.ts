@@ -24,11 +24,13 @@ export class ContactComponent implements OnInit {
   yourName: any =[];
   subject: any = [];
   content: any = [];  
+  username: any;
 
   constructor(private http: HttpClient, private router: Router, private dialog : MatDialog,private formBuilder: FormBuilder) {
     this.minDate = new Date();
   }
   ngOnInit(): void {
+      this.username = localStorage.getItem('usernm');
       this.contactForm = this.formBuilder.group({
         from: ['', [Validators.required, Validators.email]], 
         name: ['', Validators.required],
@@ -61,12 +63,15 @@ export class ContactComponent implements OnInit {
 
   contact(){
     if (this.contactForm.valid) {
-      // API FOR SENDING THE CONTACT FORM
       console.log('form', this.contactForm.value);
       this.http.post<any>('http://localhost:9092/v2/api/send', this.contactForm.value)
         .subscribe(response => {
           console.log('Response from server:', response);
+          if(response === "success" ){
+            
+          }
         })
     }
+    
   }
 }

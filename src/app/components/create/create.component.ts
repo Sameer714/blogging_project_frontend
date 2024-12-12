@@ -16,15 +16,17 @@ export class CreateComponent implements OnInit {
   token: any;
   createForm!: FormGroup;
   loading: boolean = false;
+  username: any;
 
   constructor(
     private route: ActivatedRoute, private http: HttpClient,private router: Router, private formBuilder: FormBuilder, private dialog : MatDialog ) {}
 
   ngOnInit(): void {
-    const username = localStorage.getItem('usernm');
+
+    this.username = localStorage.getItem('usernm');
     this.createForm = this.formBuilder.group({
       blogTitle: ['', [Validators.required]],
-      authorName: [{ value: username, disabled: true }],
+      authorName: [{ value: this.username, disabled: true }],
       launchDate: [''],
       aboutBlog: [''],
       content:['']

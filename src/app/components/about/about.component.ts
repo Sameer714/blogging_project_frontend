@@ -25,9 +25,13 @@ export class AboutComponent {
   yourName: any =[];
   subject: any = [];
   content: any = [];  
+  username: any;
 
   constructor(private http: HttpClient, private router: Router, private dialog : MatDialog,private formBuilder: FormBuilder) {
     this.minDate = new Date();
+  }
+  ngOnInit(){
+    this.username = localStorage.getItem('usernm');
   }
 
   create() {

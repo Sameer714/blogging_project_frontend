@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router'; // Import Router
+import { Router } from '@angular/router';
 import { PopupComponent } from '../popup/popup.component';
 import { MatDialog } from '@angular/material/dialog';
 import { PopupcredComponent } from '../popupcred/popupcred.component';
@@ -60,16 +60,16 @@ export class HomeComponent implements OnInit {
         console.error('Error:', error);
         this.loading = false;
       });
-
-
   }
 
   create() {
     this.router.navigateByUrl('/create');
   }
+
   trim(content: string): string {
     return content.length > 50 ? content.slice(0, 50): content;
   }
+  
   signuppop() {
     const popup = this.dialog.open(PopupcredComponent, {
       data: {
@@ -89,7 +89,6 @@ export class HomeComponent implements OnInit {
     
   }
   
-
   changepass() {
     this.router.navigateByUrl('/change-pass')
     }

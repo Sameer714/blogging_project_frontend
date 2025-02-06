@@ -17,7 +17,6 @@ export class PopupComponent {
     if(this.data.from === 'Update'){
       console.log('router');
       this.dialogref.close();
-      // this.router.navigateByUrl(`/update-user/${this.data.id}`);
     } else {
       this.dialogref.close();
     }

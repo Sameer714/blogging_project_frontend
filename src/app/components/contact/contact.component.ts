@@ -4,12 +4,14 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { PopupcredComponent } from '../popupcred/popupcred.component';
+import { PopupComponent } from '../popup/popup.component';
 
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.scss']
 })
+
 export class ContactComponent implements OnInit {
   contactForm!:FormGroup;
   invalidCredentials = false;
@@ -67,11 +69,15 @@ export class ContactComponent implements OnInit {
       this.http.post<any>('http://localhost:9092/v2/api/send', this.contactForm.value)
         .subscribe(response => {
           console.log('Response from server:', response);
-          if(response === "success" ){
-            
+          if(response === "Email sent successfully!" ){
+            const popup = this.dialog.open(PopupComponent, {
+              data: {
+                message: response.message,
+                status: 'welcome'
+              }
+            });
           }
         })
     }
-    
   }
 }
